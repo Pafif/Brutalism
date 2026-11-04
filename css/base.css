@@ -1,0 +1,14 @@
+/* SPOLOČNÉ CSS – meniť len po dohode */
+
+:root {
+    --farba-hlavna: #111111;
+    --farba-akcent: #c2185b;
+}
+
+body {
+    color: var(--farba-hlavna);
+}
+
+a {
+    color: var(--farba-akcent);
+}

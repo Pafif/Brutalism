@@ -1,0 +1,1 @@
+// JS hlavnej stránky – kolega
