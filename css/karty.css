@@ -5,3 +5,47 @@
     padding: 0.5rem;
     margin: 0;
 }
+.oddelovac {
+    margin: 0 2rem;
+    border: 0;
+    border-top: 2px solid black;
+    opacity: 1;
+}
+.nadpis-stranky {
+    display: flex;
+    flex-wrap: wrap;
+    /* na mobile padne vlajka pod nadpis */
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.nadpis-stranky__text {
+    flex: 1;
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border: 1px solid black;
+    font-family: "Rubik Mono One", sans-serif;
+    text-transform: uppercase;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    /* mení sa podľa šírky obrazovky */
+}
+
+.vlajka {
+    width: 7rem;
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+.vlajka svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.vlajka__roky {
+    display: block;
+    padding: 0.25rem;
+    font-size: 0.9rem;
+}
