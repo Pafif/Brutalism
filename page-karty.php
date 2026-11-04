@@ -58,7 +58,7 @@ $karty = [
 </header>
 <main class="container">
     <div class="row row-cols-1 row-cols-xl-2 g-4">
-        <?php foreach ($karty as $k) : ?>
+        <?php foreach ($karty as $i => $k) : ?>
             <div class="col">
                 <?php karta($k); ?>
             </div>
