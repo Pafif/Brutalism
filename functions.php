@@ -26,12 +26,12 @@ function brutalism_scripts() {
     wp_enqueue_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js', [], '5.3.8', true);
 
     // Spoločné CSS a JS
-    wp_enqueue_style('brutalism-base', $uri . '/css/base.css', ['bootstrap'], '1.0');
+    wp_enqueue_style('brutalism-base', $uri . '/css/base.css', ['bootstrap'], filemtime(get_template_directory() . '/css/base.css'));
     wp_enqueue_script('brutalism-main', $uri . '/js/main.js', [], '1.0', true);
 
-    // ---------- HLAVNÁ STRÁNKA (kolega) ----------
+        // ---------- HLAVNÁ STRÁNKA ----------
     if (is_front_page()) {
-        wp_enqueue_style('brutalism-domov', $uri . '/css/domov.css', ['brutalism-base'], '1.0');
+        wp_enqueue_style('brutalism-domov', $uri . '/css/domov.css', ['brutalism-base'], filemtime(get_template_directory() . '/css/domov.css'));
         wp_enqueue_script('brutalism-domov', $uri . '/js/domov.js', [], '1.0', true);
     }
 

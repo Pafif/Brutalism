@@ -1,5 +1,5 @@
 body {
-    background: #8f8f8f;
+    background: #703030;
 }
 
 /* ---------- Nadpis ---------- */
@@ -54,8 +54,9 @@ body {
     /* užšia ako čiara pod ňou */
     margin: 0 auto;
     /* a vycentrovaná */
-    background: #6b6b6b;
+    background: #4f1717;
     border: 1px solid #222;
+    border-radius: 1.5rem;
 }
 
 .karta--obratena .karta__horna {
@@ -77,6 +78,9 @@ body {
     /* obrázok sa viaže na tento rám */
     min-height: 12rem;
     /* poistka, aby nebol príliš nízky na mobile */
+    margin: 1rem;
+    
+    
 }
 
 .karta__obrazok img {
@@ -87,6 +91,7 @@ body {
     height: 100%;
     object-fit: cover;
     /* orezá sa, nedeformuje */
+    border-radius: 1rem;
 }
 
 .karta__text {
@@ -95,6 +100,7 @@ body {
     padding: 0.5rem;
     text-align: center;
     /* názov, rok a miesto v strede */
+    color: #ffffff;
 }
 .karta--obratena .karta__text {
     padding: 0.5rem 0 0.5rem 0.5rem;
@@ -118,6 +124,7 @@ body {
 
 .karta__info {
     padding: 0.75rem;
+    color: #ffffff;
 }
 
 .karta__info p {
@@ -130,6 +137,7 @@ body {
     aspect-ratio: 16 / 9;
     border: 0;
     margin-top: 0.75rem;
+    border-radius: 1rem;
 }
 
 /* ---------- Čiara medzi kartami ---------- */
