@@ -20,8 +20,6 @@ $krajiny = [
     'hungary'      => ['flag-hu.webp', 'Hungary'],
     'romania'      => ['flag-ro.webp', 'Romania'],
     'albania'      => ['flag-al.webp', 'Albania'],
-    'mongolia'     => ['flag-mn.webp', 'Mongolia'],
-    'bulgaria'     => ['flag-bg.webp', 'Bulgaria'],
 ];
 $vlajky = get_template_directory_uri() . '/images/';
 ?>
