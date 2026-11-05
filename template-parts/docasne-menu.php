@@ -2,7 +2,7 @@
 /* DOČASNÉ MENU – len na preklikávanie medzi stránkami počas vývoja.
    Automaticky zobrazí všetky publikované stránky (netreba nič nastavovať).
    Na odstránenie zmaž tento súbor a riadok get_template_part(...) v header.php. */
-$karty   = get_page_by_path('karty');
+$karty   = get_page_by_path('czsk');
 $stranky = get_pages([
     'sort_column' => 'menu_order,post_title',
     'exclude'     => $karty ? [$karty->ID] : [],
@@ -13,9 +13,9 @@ $stranky = get_pages([
         <a class="text-white" href="<?php echo esc_url(home_url('/')); ?>">Domov</a>
 
         <?php if ($karty) : ?>
-            <a class="text-white" href="<?php echo esc_url(get_permalink($karty)); ?>">Karty</a>
+            <a class="text-white" href="<?php echo esc_url(get_permalink($karty)); ?>">CZSK</a>
         <?php else : ?>
-            <a class="text-warning" href="<?php echo esc_url(admin_url('post-new.php?post_type=page')); ?>">Karty (stránka ešte neexistuje – vytvor ju)</a>
+            <a class="text-warning" href="<?php echo esc_url(admin_url('post-new.php?post_type=page')); ?>">CZSK (stránka ešte neexistuje – vytvor ju)</a>
         <?php endif; ?>
 
         <?php foreach ($stranky as $s) : ?>

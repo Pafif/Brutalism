@@ -16,9 +16,9 @@
             <?php bloginfo('name'); ?>
         </a>
 
-        <?php $karty = get_page_by_path('karty'); ?>
+        <?php $karty = get_page_by_path('czsk'); ?>
         <?php if ($karty) : ?>
-            <a href="<?php echo esc_url(get_permalink($karty)); ?>" class="fw-bold text-decoration-none">Karty</a>
+            <a href="<?php echo esc_url(get_permalink($karty)); ?>" class="fw-bold text-decoration-none">CZSK</a>
         <?php endif; ?>
 
         <?php

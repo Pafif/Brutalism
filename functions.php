@@ -35,15 +35,31 @@ function brutalism_scripts() {
         wp_enqueue_script('brutalism-domov', $uri . '/js/domov.js', [], '1.0', true);
     }
 
-    // ---------- STRÁNKA KARTY (ty) ----------
-    if (is_page('karty')) {
+    // ---------- STRÁNKY S KARTAMI (ty) ----------
+    // Každá stránka, ktorá používa šablónu page-*.php (czsk, poland, ussr, ...).
+    // Nový súbor page-nieco.php sem netreba pridávať, načíta sa automaticky.
+    if (brutalism_subor_stranky_krajiny()) {
         wp_enqueue_style('brutalism-font', 'https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap', [], null);
         wp_enqueue_style('brutalism-karty', $uri . '/css/karty.css', ['bootstrap'], filemtime(get_template_directory() . '/css/karty.css'));
     }
 }
 add_action('wp_enqueue_scripts', 'brutalism_scripts');
 
+// --- Stránky krajín sú v priečinku stranky/ ---
+function brutalism_subor_stranky_krajiny() {
+    if (!is_page()) {
+        return false;
+    }
+    $slug  = get_post_field('post_name', get_queried_object_id());
+    $subor = get_template_directory() . '/stranky/page-' . $slug . '.php';
+    return file_exists($subor) ? $subor : false;
+}
 
+function brutalism_sablona_krajiny($sablona) {
+    $subor = brutalism_subor_stranky_krajiny();
+    return $subor ? $subor : $sablona;
+}
+add_filter('template_include', 'brutalism_sablona_krajiny');
 // --- Vlastné funkcie (každá v samostatnom súbore v inc/) ---
 require_once get_template_directory() . '/inc/karta.php';
 

@@ -1,4 +1,10 @@
 <?php
+/*
+Template Name: Karty - Czechoslovakia
+
+Použije sa automaticky pre stránku so slugom "czsk",
+alebo sa dá vybrať ručne: Atribúty stránky → Šablóna.
+*/
 get_header();
 
 $karty = [
