@@ -48,7 +48,7 @@ body {
 }
 
 /* ---------- Karta ---------- */
-/* ---------- Karta ---------- */
+
 .karta {
     width: 90%;
     /* užšia ako čiara pod ňou */
@@ -65,20 +65,28 @@ body {
 
 .karta__horna {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
+    /* oba stĺpce majú rovnakú výšku */
     gap: 0.75rem;
 }
 
 
 .karta__obrazok {
-    flex: 0 0 58%;
+    flex: 0 0 50%;
+    position: relative;
+    /* obrázok sa viaže na tento rám */
+    min-height: 12rem;
+    /* poistka, aby nebol príliš nízky na mobile */
 }
 
 .karta__obrazok img {
-    display: block;
+    position: absolute;
+    /* nezväčšuje rám, len ho vyplní */
+    inset: 0;
     width: 100%;
-    aspect-ratio: 4 / 3;
+    height: 100%;
     object-fit: cover;
+    /* orezá sa, nedeformuje */
 }
 
 .karta__text {
