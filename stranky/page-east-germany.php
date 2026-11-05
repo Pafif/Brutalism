@@ -60,7 +60,7 @@ $karty = [
     </header>
 
     <!-- KARTY -->
-    <div class="row row-cols-1 g-4">
+    <div class="row row-cols-1 g-4" id="budovy">
         <?php foreach ($karty as $i => $k) : ?>
 
             <div class="col">

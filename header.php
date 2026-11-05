@@ -247,5 +247,3 @@
   aktualizuj();
 </script>
 
-</body>
-</html>
