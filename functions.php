@@ -37,7 +37,8 @@ function brutalism_scripts() {
 
     // ---------- STRÁNKA KARTY (ty) ----------
     if (is_page('karty')) {
-        wp_enqueue_style('brutalism-karty', $uri . '/css/karty.css', ['brutalism-base'], '1.0');
+        wp_enqueue_style('brutalism-font', 'https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap', [], null);
+        wp_enqueue_style('brutalism-karty', $uri . '/css/karty.css', ['bootstrap'], filemtime(get_template_directory() . '/css/karty.css'));
     }
 }
 add_action('wp_enqueue_scripts', 'brutalism_scripts');

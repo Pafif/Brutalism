@@ -1,38 +1,35 @@
-/* CSS pre stránku Karty */
+body {
+    background: #8f8f8f;
+}
 
-.ramcek {
-    border: 2px solid black;
-    padding: 0.5rem;
-    margin: 0;
-}
-.oddelovac {
-    margin: 0 2rem;
-    border: 0;
-    border-top: 2px solid black;
-    opacity: 1;
-}
+/* ---------- Nadpis ---------- */
 .nadpis-stranky {
-    display: flex;
-    flex-wrap: wrap;
-    /* na mobile padne vlajka pod nadpis */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    /* ľavý prázdny | nadpis | vlajka */
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin: 1.5rem 0;
 }
 
 .nadpis-stranky__text {
-    flex: 1;
+    grid-column: 2;
+    /* nadpis je v strednom stĺpci */
     margin: 0;
-    padding: 0.75rem 1rem;
-    border: 1px solid black;
+    padding: 0.4rem 1rem;
+    border: 1px solid #222;
     font-family: "Rubik Mono One", sans-serif;
     text-transform: uppercase;
-    font-size: clamp(1.5rem, 5vw, 3rem);
-    /* mení sa podľa šírky obrazovky */
+    text-align: center;
+    font-size: clamp(1rem, 3.5vw, 2.2rem);
 }
 
 .vlajka {
-    width: 7rem;
+    grid-column: 3;
+    /* vlajka je v pravom stĺpci */
+    justify-self: end;
+    /* a pritlačená na pravý okraj */
+    width: 5rem;
     background: black;
     color: white;
     text-align: center;
@@ -47,5 +44,90 @@
 .vlajka__roky {
     display: block;
     padding: 0.25rem;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+}
+
+/* ---------- Karta ---------- */
+/* ---------- Karta ---------- */
+.karta {
+    width: 90%;
+    /* užšia ako čiara pod ňou */
+    margin: 0 auto;
+    /* a vycentrovaná */
+    background: #6b6b6b;
+    border: 1px solid #222;
+}
+
+.karta--obratena .karta__horna {
+    flex-direction: row-reverse;
+    /* obrázok vpravo, text vľavo */
+}
+
+.karta__horna {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+
+.karta__obrazok {
+    flex: 0 0 58%;
+}
+
+.karta__obrazok img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.karta__text {
+    flex: 1;
+    min-width: 0;
+    padding: 0.5rem;
+    text-align: center;
+    /* názov, rok a miesto v strede */
+}
+.karta--obratena .karta__text {
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.karta__nazov,
+.karta__riadok {
+    font-family: "Rubik Mono One", sans-serif;
+    text-transform: uppercase;
+}
+
+.karta__nazov {
+    margin: 0 0 0.5rem;
+    font-size: clamp(0.8rem, 2.2vw, 1.4rem);
+}
+
+.karta__riadok {
+    margin: 0 0 0.25rem;
+    font-size: clamp(0.7rem, 1.6vw, 1rem);
+}
+
+.karta__info {
+    padding: 0.75rem;
+}
+
+.karta__info p {
+    margin: 0;
+}
+
+.karta__mapa {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    margin-top: 0.75rem;
+}
+
+/* ---------- Čiara medzi kartami ---------- */
+.oddelovac {
+    margin: 0;
+    border: 0;
+    border-top: 2px solid black;
+    opacity: 1;
 }

@@ -1,9 +1,8 @@
 <?php
 /* KARTA – vzhľad jednej karty
-   Použitie:  karta(['nazov' => '...', 'rok' => '...', ...]);
-   Údaje: nazov, rok, miesto, obrazok, mapa, info */
+   $obratene = true → obrázok je vpravo a text vľavo */
 
-function karta($udaje) {
+function karta($udaje, $obratene = false) {
     $d = wp_parse_args($udaje, [
         'nazov'   => '',
         'rok'     => '',
@@ -14,35 +13,43 @@ function karta($udaje) {
     ]);
 
     $obrazok = get_template_directory_uri() . '/images/karty/' . $d['obrazok'];
-    ?>
-    <div class="ramcek">
-        <div class="row g-2">
+    $trieda  = $obratene ? 'karta karta--obratena' : 'karta';
 
-            <div class="col-12 col-md-6">
-                <img class="ramcek w-100 h-100 object-fit-cover"
-                     src="<?php echo esc_url($obrazok); ?>"
+    // Mapa: funguje aj s celým <iframe> z Google Maps, aj so samotným odkazom
+    $mapa = $d['mapa'];
+    if (stripos($mapa, '<iframe') !== false && preg_match('/src="([^"]+)"/i', $mapa, $m)) {
+        $mapa = $m[1];
+    }
+    $mapa = esc_url($mapa);
+    ?>
+    <article class="<?php echo $trieda; ?>">
+
+        <div class="karta__horna">
+            <div class="karta__obrazok">
+                <img src="<?php echo esc_url($obrazok); ?>"
                      alt="<?php echo esc_attr($d['nazov']); ?>">
             </div>
 
-            <div class="col-12 col-md-6 d-flex flex-column gap-2">
-                <h3 class="ramcek h5 text-center"><?php echo esc_html($d['nazov']); ?></h3>
-                <p class="ramcek text-center"><?php echo esc_html($d['rok']); ?></p>
-                <p class="ramcek text-center"><?php echo esc_html($d['miesto']); ?></p>
-
-                <?php if ($d['mapa']) : ?>
-                    <div class="ramcek ratio ratio-16x9 p-0">
-                        <iframe src="<?php echo esc_url($d['mapa']); ?>" loading="lazy"></iframe>
-                    </div>
+            <div class="karta__text">
+                <h3 class="karta__nazov"><?php echo esc_html($d['nazov']); ?></h3>
+                <?php if ($d['rok']) : ?>
+                    <p class="karta__riadok"><?php echo esc_html($d['rok']); ?></p>
+                <?php endif; ?>
+                <?php if ($d['miesto']) : ?>
+                    <p class="karta__riadok"><?php echo esc_html($d['miesto']); ?></p>
+                <?php endif; ?>
+                <?php if ($mapa) : ?>
+                    <iframe class="karta__mapa" src="<?php echo $mapa; ?>" loading="lazy"></iframe>
                 <?php endif; ?>
             </div>
-
-            <div class="col-12">
-                <div class="ramcek">
-                    <p class="m-0"><?php echo esc_html($d['info']); ?></p>
-                </div>
-            </div>
-
         </div>
-    </div>
+
+        <?php if ($d['info']) : ?>
+            <div class="karta__info">
+                <p><?php echo esc_html($d['info']); ?></p>
+            </div>
+        <?php endif; ?>
+
+    </article>
     <?php
 }
