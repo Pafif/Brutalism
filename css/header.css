@@ -11,6 +11,7 @@
 
 .dropdown-coloring img {
     display: block;
+
     opacity: 0.5;
     transition: opacity 0.3s, transform 0.3s;
 }
@@ -41,4 +42,16 @@
 .dropdown-menu.filter-menu[data-bs-popper] {
     left: 50%;
     transform: translateX(-50%);
+}
+/* menu s vlajkami: vycentrované a skrolovateľné */
+.vlajky-menu {
+    max-height: 60vh; /* najviac 60 % výšky obrazovky */
+    overflow-y: auto; /* keď sa nezmestí, dá sa skrolovať */
+    overflow-x: hidden; /* zväčšená vlajka nevytvorí vodorovný posuvník */
+    scrollbar-width: thin; /* tenký posuvník */
+    scrollbar-color: #555 transparent;
+}
+
+.vlajky-menu .dropdown-item {
+    justify-content: center; /* vlajka v strede riadku */
 }

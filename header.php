@@ -33,7 +33,7 @@ $vlajky = get_template_directory_uri() . '/images/';
               data-bs-toggle="dropdown" aria-expanded="false" aria-label="Krajiny">
         <i class="bi bi-list fs-5"></i>
       </button>
-      <ul class="dropdown-menu dropdown-coloring">
+      <ul class="dropdown-menu dropdown-coloring vlajky-menu">
         <li><a class="dropdown-item domov" href="<?php echo esc_url(home_url('/')); ?>">Home</a></li>
         <li><hr class="dropdown-divider"></li>
 
